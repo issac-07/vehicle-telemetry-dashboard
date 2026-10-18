@@ -1,0 +1,145 @@
+openapi: 3.0.3
+
+info:
+  title: Vehicle Analytics API
+  version: 1.0.0
+  description: >
+    API for exposing vehicle sensor metadata and the latest structurally
+    valid telemetry readings from the emulator. Out-of-range values are
+    retained and logged by the API.
+
+servers:
+  - url: http://localhost:4000
+    description: Local development server
+
+paths:
+  /health:
+    get:
+      summary: Check API and emulator health
+      responses:
+        '200':
+          description: API and emulator are healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  emulator:
+                    type: boolean
+                    example: true
+
+        '503':
+          description: Emulator health check failed
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, emulator]
+                properties:
+                  status:
+                    type: string
+                    example: unhealthy
+                  emulator:
+                    type: boolean
+                    example: false
+
+  /sensors:
+    get:
+      summary: Get sensor metadata
+      description: Returns the ID, name, and unit for each available sensor.
+      responses:
+        '200':
+          description: Sensor metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SensorMetadata'
+
+        '502':
+          description: Emulator responded with an unsuccessful HTTP status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: Failed to fetch sensor metadata from emulator
+
+        '503':
+          description: API could not connect to the emulator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: Emulator unavailable
+
+  /telemetry:
+    get:
+      summary: Get latest telemetry readings
+      description: >
+        Returns the latest structurally valid reading stored for each sensor.
+        Out-of-range values are included and logged, not filtered out.
+        Returns an empty array until readings arrive. Stored readings may
+        become stale when the emulator is disconnected.
+      responses:
+        '200':
+          description: Latest telemetry readings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TelemetryReading'
+
+components:
+  schemas:
+
+    SensorMetadata:
+      type: object
+      required:
+        - sensorId
+        - sensorName
+        - unit
+      properties:
+        sensorId:
+          type: number
+          example: 1000000070501
+        sensorName:
+          type: string
+          example: BATTERY_TEMPERATURE
+        unit:
+          type: string
+          example: C
+
+    TelemetryReading:
+      type: object
+      required:
+        - sensorId
+        - value
+        - timestamp
+      properties:
+        sensorId:
+          type: number
+          example: 1000000070501
+        value:
+          type: number
+          example: 54.2
+        timestamp:
+          type: number
+          format: double
+          description: Unix timestamp in seconds (may include fractional seconds).
+          example: 1792300000.123
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          example: Emulator unavailable

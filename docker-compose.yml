@@ -1,0 +1,27 @@
+services:
+  emulator:
+    build:
+      context: ./emulator
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - '4000:4000'
+    environment:
+      - EMULATOR_URL=http://emulator:3001
+    depends_on:
+      - emulator
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api

@@ -1,0 +1,123 @@
+[
+  {
+    "busNumber": 1,
+    "frameId": 705,
+    "signalIndex": 1,
+    "sensorName": "BATTERY_TEMPERATURE",
+    "unit": "C",
+    "minValue": 20,
+    "maxValue": 80,
+    "intervalMs": 500
+  },
+  {
+    "busNumber": 1,
+    "frameId": 705,
+    "signalIndex": 2,
+    "sensorName": "MOTOR_TEMPERATURE",
+    "unit": "C",
+    "minValue": 30,
+    "maxValue": 120,
+    "intervalMs": 750
+  },
+  {
+    "busNumber": 2,
+    "frameId": 512,
+    "signalIndex": 1,
+    "sensorName": "TYRE_PRESSURE_FL",
+    "unit": "kPa",
+    "minValue": 150,
+    "maxValue": 250,
+    "intervalMs": 1000
+  },
+  {
+    "busNumber": 2,
+    "frameId": 512,
+    "signalIndex": 2,
+    "sensorName": "TYRE_PRESSURE_FR",
+    "unit": "kPa",
+    "minValue": 150,
+    "maxValue": 250,
+    "intervalMs": 1000
+  },
+  {
+    "busNumber": 2,
+    "frameId": 512,
+    "signalIndex": 3,
+    "sensorName": "TYRE_PRESSURE_RL",
+    "unit": "kPa",
+    "minValue": 150,
+    "maxValue": 250,
+    "intervalMs": 1100
+  },
+  {
+    "busNumber": 2,
+    "frameId": 512,
+    "signalIndex": 4,
+    "sensorName": "TYRE_PRESSURE_RR",
+    "unit": "kPa",
+    "minValue": 150,
+    "maxValue": 250,
+    "intervalMs": 1100
+  },
+  {
+    "busNumber": 3,
+    "frameId": 600,
+    "signalIndex": 1,
+    "sensorName": "PACK_CURRENT",
+    "unit": "A",
+    "minValue": -300,
+    "maxValue": 300,
+    "intervalMs": 200
+  },
+  {
+    "busNumber": 3,
+    "frameId": 600,
+    "signalIndex": 2,
+    "sensorName": "PACK_VOLTAGE",
+    "unit": "V",
+    "minValue": 350,
+    "maxValue": 500,
+    "intervalMs": 200
+  },
+  {
+    "busNumber": 3,
+    "frameId": 600,
+    "signalIndex": 3,
+    "sensorName": "PACK_SOC",
+    "unit": "%",
+    "minValue": 0,
+    "maxValue": 100,
+    "intervalMs": 1000
+  },
+  {
+    "busNumber": 3,
+    "frameId": 601,
+    "signalIndex": 1,
+    "sensorName": "VEHICLE_SPEED",
+    "unit": "km/h",
+    "minValue": 0,
+    "maxValue": 250,
+    "intervalMs": 200
+  },
+  {
+    "busNumber": 3,
+    "frameId": 601,
+    "signalIndex": 2,
+    "sensorName": "STEERING_ANGLE",
+    "unit": "deg",
+    "minValue": -180,
+    "maxValue": 180,
+    "intervalMs": 150
+  },
+  {
+    "busNumber": 3,
+    "frameId": 601,
+    "signalIndex": 3,
+    "sensorName": "BRAKE_PRESSURE_FRONT",
+    "unit": "bar",
+    "minValue": 0,
+    "maxValue": 120,
+    "intervalMs": 150
+  }
+]
+

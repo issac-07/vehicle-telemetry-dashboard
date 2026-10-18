@@ -1,0 +1,22 @@
+# Dependencies (API, emulator and frontend)
+node_modules/
+
+# Build output
+dist/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+log.txt
+
+# Operating system files
+.DS_Store
+Thumbs.db
