@@ -2,8 +2,7 @@
 
 A fullstack dashboard for monitoring a Formula Student vehicle: a vehicle-centred overview, live sensor values, status indicators and short-term telemetry charts.
 
-**[View the Figma design](https://www.figma.com/design/qYgCQNtVvz2CJYtMPfWhCz?node-id=1-2)** · **[API specification](./openapi.yaml)**
-
+**[View the Figma design](https://www.figma.com/design/qYgCQNtVvz2CJYtMPfWhCz?node-id=1-2)** 
 ## What you can explore
 
 - **Vehicle overview:** four tyre-pressure readings positioned around a top-down vehicle image.
