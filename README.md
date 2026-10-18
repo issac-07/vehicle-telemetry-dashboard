@@ -4,8 +4,6 @@ A fullstack dashboard for monitoring a Formula Student vehicle: a vehicle-centre
 
 **[View the Figma design](https://www.figma.com/design/qYgCQNtVvz2CJYtMPfWhCz?node-id=1-2)** · **[API specification](./openapi.yaml)**
 
-> The public demo uses server-generated simulated telemetry, based on the project's emulator configuration and sampling rules. It runs a request-driven cloud adapter rather than the three Docker services. The Docker version described below uses the original emulator and its WebSocket stream. Neither version represents measurements from a physical vehicle.
-
 ## What you can explore
 
 - **Vehicle overview:** four tyre-pressure readings positioned around a top-down vehicle image.
